@@ -1,12 +1,38 @@
 package com.unla.trabajoPractico.entities;
 
-public class Usuario {
+import java.util.HashSet;
+import java.util.Set;
 
-	public int idUsuario;
-	public String nombre;
-	public String contraseña;
-	public Perfil perfil;
-	public boolean active;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
+import javax.persistence.Table;
+
+@Entity
+@Table(name=("usuario"))
+public class Usuario {
+	
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private int idUsuario;
+	@Column(name=("nombre"))
+	private String nombre;
+	@Column(name=("contraseña"))
+	private String contraseña;
+	@Column(name=("active"))
+	private boolean active;
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "usuario")
+	private Set<Rol> rol = new HashSet<Rol>();
+	@OneToOne
+	@JoinColumn(name = "idPerfil")
+	private Perfil perfil;
+
 	
 	
 	public Usuario() {}
