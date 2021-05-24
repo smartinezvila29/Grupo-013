@@ -3,6 +3,7 @@ package com.unla.trabajoPractico.entities;
 import java.util.HashSet;
 import java.util.Set;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -29,20 +30,38 @@ public class Usuario {
 	private boolean active;
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "usuario")
 	private Set<Rol> rol = new HashSet<Rol>();
-	@OneToOne
-	@JoinColumn(name = "idPerfil")
+	@OneToOne(cascade = CascadeType.ALL)
+	@JoinColumn(name = "idPerfil", unique = true)
 	private Perfil perfil;
+	
+	public Usuario() {
+		this.perfil = new Perfil();
+	}
 
-	
-	
-	public Usuario() {}
-	
-	public Usuario(String nombre, String contraseña, Perfil perfil) {
+	public Usuario(int idUsuario, String nombre, String contraseña, boolean active) {
+		super();
+		this.idUsuario = idUsuario;
+		this.nombre = nombre;
+		this.contraseña = contraseña;
+		this.active = active;
+	}
+
+	public Usuario(String nombre, String contraseña, boolean active, Set<Rol> rol, Perfil perfil) {
 		super();
 		this.nombre = nombre;
 		this.contraseña = contraseña;
+		this.active = active;
+		this.rol = rol;
 		this.perfil = perfil;
-		this.active = true;
+	}
+	
+
+	public int getIdUsuario() {
+		return idUsuario;
+	}
+
+	public void setIdUsuario(int idUsuario) {
+		this.idUsuario = idUsuario;
 	}
 
 	public String getNombre() {

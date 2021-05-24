@@ -1,0 +1,13 @@
+<form action="#" th:action="@{/signup/profile}" th:object="${perfil}" method="post">
+	<p>Nombre: <input type="text" th:field="*{nombre}" required/></p>
+	<p>Apellido: <input type="text" th:field="*{apellido}" required/></p>
+	<p>Tipo de Documento: <select name="menu" th:field="*{tipoDocumento}">
+		<option value = null>--</option>
+		<option value="Documento Nacional de Identidad">Documento Nacional de Identidad</option>
+  		<option value="Pasaporte">Pasaporte</option>
+	</select>
+	</p>	
+	<p>Numero de Documento: <input type="number" th:field="*{nroDocumento}" required/></p>
+	<p>Email: <input type="email" placeholder="ejemplo@email.com" th:field="*{email}" required/></p>
+	<input type="submit" />
+</form>

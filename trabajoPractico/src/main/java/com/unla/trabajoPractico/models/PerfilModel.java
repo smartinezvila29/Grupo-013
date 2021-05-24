@@ -1,36 +1,21 @@
-package com.unla.trabajoPractico.entities;
+package com.unla.trabajoPractico.models;
 
-import java.time.LocalDate;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotNull;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
-
-
-@Entity
-@Table(name=("perfil"))
-public class Perfil {
+public class PerfilModel {
 	
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int idPerfil;
-	@Column(name = ("nombre"))
 	private String nombre;
-	@Column(name = ("apellido"))
 	private String apellido;
-	@Column(name = ("tipoDocumento"))
 	private String tipoDocumento;
-	@Column(name = ("nroDocumento"))
 	private long nroDocumento;
-	@Column(name = ("email"))
 	private String email;
 	
-	public Perfil() {}
+	public PerfilModel() {}
 
-	public Perfil(int idPerfil, String nombre, String apellido, String tipoDocumento, long nroDocumento, String email) {
+	public PerfilModel(int idPerfil, String nombre, String apellido, String tipoDocumento, long nroDocumento,
+			String email) {
 		super();
 		this.idPerfil = idPerfil;
 		this.nombre = nombre;
@@ -86,6 +71,8 @@ public class Perfil {
 
 	public void setEmail(String email) {
 		this.email = email;
-	}	
+	}
+	
+	
 
 }
