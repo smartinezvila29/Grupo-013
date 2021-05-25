@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en" >
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>Lista de Perfiles</title>
+    </head>
+       <body>
+           <p><a class="navbar-brand" href="/">Inicio</a></p>
+           <p><a class="navbar-brand" href="/profile/signup">Añadir Perfil</a></p>
+           <p><a class="navbar-brand" href="/profile/download">Descargar PDF</a></p>
+   		</body>
+<table border="2">
+	<thead>
+		<tr>
+			<th>Nombre</th>
+			<th>Apellido</th>
+			<th>Tipo de Documento</th>
+			<th>Numero de Documento</th>
+			<th>Email</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr th:each="perfil: ${perfiles}">
+			<td><span th:text="${perfil.nombre}" /></td>
+			<td><span th:text="${perfil.apellido}" /></td>
+			<td><span th:text="${perfil.tipoDocumento}" /></td>
+			<td><span th:text="${perfil.nroDocumento}" /></td>
+			<td><span th:text="${perfil.email}" /></td>
+			<td><a th:href="@{'/profile/edit'+ ${perfil.idPerfil}}">Editar</a></td>
+			<td><a th:href="@{'/profile/remove'+ ${perfil.idPerfil}}">Borrar</a></td>
+		</tr>
+	</tbody>
+</table>
+</html>

@@ -8,12 +8,13 @@
         <title>Crear Perfil</title>
     </head>
        <body>
-           <p><a class="navbar-brand" href="/profile/list">Lista de Perfiles</a></p>
+           <p><a class="navbar-brand" href="/">Inicio</a></p>
             <div class="container">
-                <h1>Añadir Perfil</h1>
+                <h1>Editar Perfil</h1>
             </div>
    		</body>
-<form action="#" th:action="@{/profile/signup}" th:object="${perfil}" method="post">
+<form action="#" th:action="@{/profile/update}" th:object="${perfil}" method="post">
+	<input type="hidden" id="id" name="id" th:field="*{idPerfil}"/>
 	<p>Nombre: <input type="text" th:field="*{nombre}" required/></p>
 	<p>Apellido: <input type="text" th:field="*{apellido}" required/></p>
 	<p>Tipo de Documento: <select name="menu" th:field="*{tipoDocumento}">
@@ -25,6 +26,6 @@
 	<p>Numero de Documento: <input type="number" th:field="*{nroDocumento}" required/></p>
 	<p>Email: <input type="email" placeholder="ejemplo@email.com" th:field="*{email}" required/></p>
 	<input type="submit" />
-	<a class="navbar-brand" href="/">Cancelar</a>
+	<a class="navbar-brand" href="/profile/list">Cancelar</a>
 </form>
 </html>

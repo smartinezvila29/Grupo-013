@@ -27,12 +27,36 @@ public class PerfilService implements IPerfilService {
 		return perfilRepository.findAll();
 	}
 	@Override
-	public PerfilModel insertOrUpdate(PerfilModel perfilModel) {
+	public PerfilModel insert(PerfilModel perfilModel) {
 		Perfil perfil = perfilRepository.save(perfilConverter.modelToEntity(perfilModel));
 		return perfilConverter.entityToModel(perfil);
 	}
 	
+	@Override
+	public boolean remove(int id) {
+		try {
+			perfilRepository.delete(perfilRepository.findByidPerfil(id));
+			return true;
+		}catch (Exception e) {
+			return false;
+		}
+	}
 	
+	@Override
+	public PerfilModel findById(int id) {
+		Perfil perfil = perfilRepository.findByidPerfil(id);
+		return perfilConverter.entityToModel(perfil);
+	}
+	@Override
+	public PerfilModel update(PerfilModel perfilModel) {
+		Perfil perfil = perfilRepository.findByidPerfil(perfilModel.getIdPerfil());
+		perfil.setNombre(perfilModel.getNombre());
+		perfil.setApellido(perfilModel.getApellido());
+		perfil.setTipoDocumento(perfilModel.getTipoDocumento());
+		perfil.setNroDocumento(perfilModel.getNroDocumento());
+		perfil.setEmail(perfilModel.getEmail());
+		perfilRepository.save(perfil);
+		return perfilConverter.entityToModel(perfil);
+	}
 	
-
 }

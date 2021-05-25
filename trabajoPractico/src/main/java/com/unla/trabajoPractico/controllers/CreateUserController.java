@@ -25,7 +25,7 @@ public class CreateUserController {
 	
 	@GetMapping("")
 	public ModelAndView index() {
-		ModelAndView mAV= new ModelAndView(ViewRouteHelper.HOME);
+		ModelAndView mAV= new ModelAndView(ViewRouteHelper.PERFIL_INDEX);
 		mAV.addObject("perfil", new PerfilModel());
 		return mAV;
 	}

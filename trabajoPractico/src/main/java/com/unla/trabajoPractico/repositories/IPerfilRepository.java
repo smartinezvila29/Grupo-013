@@ -10,6 +10,7 @@ import com.unla.trabajoPractico.entities.Perfil;
 @Repository("perfilRepository")
 public interface IPerfilRepository extends JpaRepository<Perfil, Serializable>{
 	
+	public abstract Perfil findByidPerfil(int id);
 	public abstract Perfil findByNroDocumento(long nroDocumento);
 	public abstract Perfil findByNombreAndApellido(String nombre, String apellido);
 	public abstract Perfil findByEmail(String email);
