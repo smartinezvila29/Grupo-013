@@ -47,7 +47,7 @@ public class CreatePerfilController {
 	
 	@PostMapping("/signup")
 	public RedirectView create(@ModelAttribute("perfil") PerfilModel perfilModel) {
-		perfilService.insert(perfilModel);
+		perfilService.insertOrUpdate(perfilModel);
 		return new RedirectView(ViewRouteHelper.PERFIL_REFRESH);
 	}
 	
@@ -71,7 +71,7 @@ public class CreatePerfilController {
 	
 	@PostMapping("/update")
 	public RedirectView update(@ModelAttribute("perfil") PerfilModel perfilModel) {
-		perfilService.update(perfilModel);
+		perfilService.insertOrUpdate(perfilModel);
 		return new RedirectView(ViewRouteHelper.PERFIL_REFRESHLIST);
 	}
 	

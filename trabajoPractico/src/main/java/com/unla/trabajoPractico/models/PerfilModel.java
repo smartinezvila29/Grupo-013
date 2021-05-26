@@ -1,8 +1,5 @@
 package com.unla.trabajoPractico.models;
 
-import javax.validation.constraints.Min;
-import javax.validation.constraints.NotNull;
-
 public class PerfilModel {
 	
 	private int idPerfil;

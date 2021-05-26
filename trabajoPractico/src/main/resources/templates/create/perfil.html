@@ -20,17 +20,17 @@
         <div class="row clearfix">
             <div class="col_half">
               <div class="input_field"> <span><i aria-hidden="true" class="fa fa-user"></i></span>
-                <input type="text" name="name" placeholder="First Name" th:field="*{nombre}" required/>
+                Nombre:<input type="text" name="name" placeholder="Nombre" th:field="*{nombre}" required/>
               </div>
             </div>
             <div class="col_half">
               <div class="input_field"> <span><i aria-hidden="true" class="fa fa-user"></i></span>
-                <input type="text" name="name" placeholder="Last Name" th:field="*{apellido}" required />
+                Apellido<input type="text" name="name" placeholder="Apellido" th:field="*{apellido}" required />
               </div>
             </div>
           </div>
           <div class="input_field"> <span><i aria-hidden="true" class="fa fa-envelope"></i></span>
-            <input type="email" name="email" placeholder="Email" required />
+            Email:<input type="email" name="email" placeholder="Email" required />
           </div>
               <div class="input_field select_option">
                 <select name="menu" th:field="*{tipoDocumento}">
@@ -41,7 +41,7 @@
                 <div class="select_arrow"></div>
               </div>
             <div class="input_field"> <span><i aria-hidden="true" class="fa fa-envelope"></i></span>
-            	<input type="number" th:field="*{nroDocumento}" required/></p>
+            	N° de Documento<input type="number" th:field="*{nroDocumento}" required/></p>
             </div>
           	<input type="submit" class="button" />
 			<a class="navbar-brand" href="/">Cancelar</a>
@@ -53,18 +53,3 @@
 
    		</body>
 </html>
-<!--<form action="#" th:action="@{/profile/signup}" th:object="${perfil}" method="post">
-	<p>Nombre: <input type="text" th:field="*{nombre}" required/></p>
-	<p>Apellido: <input type="text" th:field="*{apellido}" required/></p>
-	<p>Tipo de Documento: <select name="menu" th:field="*{tipoDocumento}">
-		<option value = null>--</option>
-		<option value="Documento Nacional de Identidad">Documento Nacional de Identidad</option>
-  		<option value="Pasaporte">Pasaporte</option>
-	</select>
-	</p>	
-	<p>Numero de Documento: <input type="number" th:field="*{nroDocumento}" required/></p>
-	<p>Email: <input type="email" placeholder="ejemplo@email.com" th:field="*{email}" required/></p>
-	<input type="submit" />
-	<a class="navbar-brand" href="/">Cancelar</a>
-</form>
-</html>-->

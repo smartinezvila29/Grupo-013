@@ -27,7 +27,7 @@ public class PerfilService implements IPerfilService {
 		return perfilRepository.findAll();
 	}
 	@Override
-	public PerfilModel insert(PerfilModel perfilModel) {
+	public PerfilModel insertOrUpdate(PerfilModel perfilModel) {
 		Perfil perfil = perfilRepository.save(perfilConverter.modelToEntity(perfilModel));
 		return perfilConverter.entityToModel(perfil);
 	}
@@ -45,17 +45,6 @@ public class PerfilService implements IPerfilService {
 	@Override
 	public PerfilModel findById(int id) {
 		Perfil perfil = perfilRepository.findByidPerfil(id);
-		return perfilConverter.entityToModel(perfil);
-	}
-	@Override
-	public PerfilModel update(PerfilModel perfilModel) {
-		Perfil perfil = perfilRepository.findByidPerfil(perfilModel.getIdPerfil());
-		perfil.setNombre(perfilModel.getNombre());
-		perfil.setApellido(perfilModel.getApellido());
-		perfil.setTipoDocumento(perfilModel.getTipoDocumento());
-		perfil.setNroDocumento(perfilModel.getNroDocumento());
-		perfil.setEmail(perfilModel.getEmail());
-		perfilRepository.save(perfil);
 		return perfilConverter.entityToModel(perfil);
 	}
 	
