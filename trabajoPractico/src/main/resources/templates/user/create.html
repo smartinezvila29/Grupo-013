@@ -1,0 +1,21 @@
+<!--<form action="#" th:action="@{/login}" th:object="${usuario}" method="post">
+	<p>Nombre de usuario: <input type="text" th:field="*{nombre}" required/></p>
+	<p>Contraseña: <input type="password" th:field="*{contraseña}" required/></p>
+	<input type="submit" />
+</form> -->
+<link href="../css/login.css" rel="stylesheet" type="text/css">
+
+<div class="wrapper fadeInDown">
+  <div id="formContent">
+    <!-- Tabs Titles -->
+    <h2 class="active"> Login </h2>
+
+    <!-- Login Form -->
+    <form action="#" th:action="@{/login}" th:object="${usuario}" method="post">
+      <input type="text" id="login" class="fadeIn second" placeholder="username" th:field="*{nombre}" required>
+      <input type="password" id="password" class="fadeIn third" placeholder="password" th:field="*{contraseña}" required>
+      <input type="submit" class="fadeIn fourth" value="Log In">
+    </form>
+
+  </div>
+</div>

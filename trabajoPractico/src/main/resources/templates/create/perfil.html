@@ -9,11 +9,51 @@
     </head>
        <body>
            <p><a class="navbar-brand" href="/profile/list">Lista de Perfiles</a></p>
-            <div class="container">
-                <h1>Añadir Perfil</h1>
+           <div class="form_wrapper">
+  <div class="form_container">
+    <div class="title_container">
+      <h2>Añadir perfil</h2>
+    </div>
+    <div class="row clearfix">
+      <div class="">
+        <form action="#" th:action="@{/profile/signup}" th:object="${perfil}" method="post">
+        <div class="row clearfix">
+            <div class="col_half">
+              <div class="input_field"> <span><i aria-hidden="true" class="fa fa-user"></i></span>
+                <input type="text" name="name" placeholder="First Name" th:field="*{nombre}" required/>
+              </div>
             </div>
+            <div class="col_half">
+              <div class="input_field"> <span><i aria-hidden="true" class="fa fa-user"></i></span>
+                <input type="text" name="name" placeholder="Last Name" th:field="*{apellido}" required />
+              </div>
+            </div>
+          </div>
+          <div class="input_field"> <span><i aria-hidden="true" class="fa fa-envelope"></i></span>
+            <input type="email" name="email" placeholder="Email" required />
+          </div>
+              <div class="input_field select_option">
+                <select name="menu" th:field="*{tipoDocumento}">
+                  <option value="--">Tipo de Documento</option>
+                  <option value="Documento Nacional de Identidad">Documento Nacional de Identidad</option>
+                  <option value="Pasaporte">Pasaporte</option>
+                </select>
+                <div class="select_arrow"></div>
+              </div>
+            <div class="input_field"> <span><i aria-hidden="true" class="fa fa-envelope"></i></span>
+            	<input type="number" th:field="*{nroDocumento}" required/></p>
+            </div>
+          	<input type="submit" class="button" />
+			<a class="navbar-brand" href="/">Cancelar</a>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
    		</body>
-<form action="#" th:action="@{/profile/signup}" th:object="${perfil}" method="post">
+</html>
+<!--<form action="#" th:action="@{/profile/signup}" th:object="${perfil}" method="post">
 	<p>Nombre: <input type="text" th:field="*{nombre}" required/></p>
 	<p>Apellido: <input type="text" th:field="*{apellido}" required/></p>
 	<p>Tipo de Documento: <select name="menu" th:field="*{tipoDocumento}">
@@ -27,4 +67,4 @@
 	<input type="submit" />
 	<a class="navbar-brand" href="/">Cancelar</a>
 </form>
-</html>
+</html>-->

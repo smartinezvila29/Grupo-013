@@ -11,5 +11,6 @@ import com.unla.trabajoPractico.entities.Usuario;
 public interface IUsuarioRepository extends JpaRepository<Usuario, Serializable>{
 	
 	public abstract Usuario findByNombre(String nombre);
+	public abstract Usuario findByIdUsuario (int idUsuario);
 
 }

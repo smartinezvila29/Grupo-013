@@ -7,7 +7,9 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
 import com.unla.trabajoPractico.converters.UsuarioConverter;
+import com.unla.trabajoPractico.entities.Perfil;
 import com.unla.trabajoPractico.entities.Usuario;
+import com.unla.trabajoPractico.models.PerfilModel;
 import com.unla.trabajoPractico.models.UsuarioModel;
 import com.unla.trabajoPractico.repositories.IUsuarioRepository;
 import com.unla.trabajoPractico.services.IUsuarioService;
@@ -31,6 +33,42 @@ public class UsuarioService implements IUsuarioService{
 	public UsuarioModel insertOrUpdate(UsuarioModel usuarioModel) {
 		Usuario usuario = usuarioRepository.save(usuarioConverter.modelToEntity(usuarioModel));
 		return usuarioConverter.entityToModel(usuario);
+	}
+	
+	@Override
+	public boolean delete(int idUsuario) {
+		//Usuario user = usuarioRepository.findByNombre(nombre);
+		//user.setActive(false);
+		//usuarioRepository.save(user);
+		//return usuarioConverter.entityToModel(user);
+		try {
+			usuarioRepository.delete(usuarioRepository.getById(idUsuario));
+			return true;
+		}catch (Exception e) {
+			return false;
+		}
+	}
+	
+	@Override
+	public UsuarioModel getUser(String nombre) {
+		Usuario user = usuarioRepository.findByNombre(nombre);
+		if (user != null)
+		{
+			return usuarioConverter.entityToModel(user);
+		}
+		else
+		{
+			return null;
+		}
+	}
+	
+	@Override
+	public UsuarioModel update(UsuarioModel usuarioModel) {
+		//Perfil perfil = perfilRepository.findByidPerfil(perfilModel.getIdPerfil());
+		Usuario user = usuarioRepository.findByIdUsuario(usuarioModel.getIdUsuario());
+		user.setNombre(usuarioModel.getNombre());
+		usuarioRepository.save(user);
+		return usuarioConverter.entityToModel(user);
 	}
 	
 	

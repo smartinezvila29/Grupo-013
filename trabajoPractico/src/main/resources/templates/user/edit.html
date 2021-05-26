@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>Editar usuario</title>
+    </head>
+       <body>
+           <p><a class="navbar-brand" href="/">Inicio</a></p>
+            <div class="container">
+                <h1>Editar Usuario</h1>
+            </div>
+   		</body>
+<form action="#" th:action="@{/user/update}" th:object="${usuario}" method="post">
+	<input type="hidden" id="id" name="id" th:field="*{idUsuario}"/>
+	<p>Nombre: <input type="text" th:field="*{nombre}" required/></p>
+	<input type="submit" />
+	<a class="navbar-brand" href="/user/list">Cancelar</a>
+</form>
+</html>
