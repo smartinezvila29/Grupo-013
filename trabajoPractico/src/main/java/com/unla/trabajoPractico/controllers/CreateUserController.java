@@ -101,7 +101,7 @@ public class CreateUserController {
 		@PostMapping("user/update")
 		public RedirectView update(@ModelAttribute("usuario") UsuarioModel usuarioModel) {
 			usuarioService.update(usuarioModel);
-			return new RedirectView(ViewRouteHelper.USER_LIST);
+			return new RedirectView(ViewRouteHelper.HOME);
 		}
 
 		@GetMapping("/user/logout")
