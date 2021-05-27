@@ -7,9 +7,7 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
 import com.unla.trabajoPractico.converters.UsuarioConverter;
-import com.unla.trabajoPractico.entities.Perfil;
 import com.unla.trabajoPractico.entities.Usuario;
-import com.unla.trabajoPractico.models.PerfilModel;
 import com.unla.trabajoPractico.models.UsuarioModel;
 import com.unla.trabajoPractico.repositories.IUsuarioRepository;
 import com.unla.trabajoPractico.services.IUsuarioService;
@@ -64,7 +62,6 @@ public class UsuarioService implements IUsuarioService{
 	
 	@Override
 	public UsuarioModel update(UsuarioModel usuarioModel) {
-		//Perfil perfil = perfilRepository.findByidPerfil(perfilModel.getIdPerfil());
 		Usuario user = usuarioRepository.findByIdUsuario(usuarioModel.getIdUsuario());
 		user.setNombre(usuarioModel.getNombre());
 		usuarioRepository.save(user);

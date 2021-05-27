@@ -3,7 +3,6 @@ package com.unla.trabajoPractico.services;
 import java.util.List;
 
 import com.unla.trabajoPractico.entities.Usuario;
-import com.unla.trabajoPractico.models.PerfilModel;
 import com.unla.trabajoPractico.models.UsuarioModel;
 
 public interface IUsuarioService {
