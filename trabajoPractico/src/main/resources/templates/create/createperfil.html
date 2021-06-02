@@ -1,55 +1,39 @@
-<!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-        <meta name="description" content="" />
-        <meta name="author" content="" />
-        <title>Crear Perfil</title>
-    </head>
-       <body>
-           <p><a class="navbar-brand" href="/profile/list">Lista de Perfiles</a></p>
-           <div class="form_wrapper">
-  <div class="form_container">
-    <div class="title_container">
-      <h2>Añadir perfil</h2>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+<nav class="navbar navbar-inverse navbar-static-top">
+	<div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+	    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+	        <span class="sr-only">Toggle navigation</span>
+	        <span class="icon-bar"></span>
+	        <span class="icon-bar"></span>
+	        <span class="icon-bar"></span>
+		</button>
+		<a class="navbar-brand" href="/"> Inicio </a>
     </div>
-    <div class="row clearfix">
-      <div class="">
-        <form action="#" th:action="@{/profile/signup}" th:object="${perfil}" method="post">
-        <div class="row clearfix">
-            <div class="col_half">
-              <div class="input_field"> <span><i aria-hidden="true" class="fa fa-user"></i></span>
-                Nombre:<input type="text" name="name" placeholder="Nombre" th:field="*{nombre}" required/>
-              </div>
-            </div>
-            <div class="col_half">
-              <div class="input_field"> <span><i aria-hidden="true" class="fa fa-user"></i></span>
-                Apellido<input type="text" name="name" placeholder="Apellido" th:field="*{apellido}" required />
-              </div>
-            </div>
-          </div>
-          <div class="input_field"> <span><i aria-hidden="true" class="fa fa-envelope"></i></span>
-            Email:<input type="email" name="email" placeholder="Email" required />
-          </div>
-              <div class="input_field select_option">
-                <select name="menu" th:field="*{tipoDocumento}">
-                  <option value="--">Tipo de Documento</option>
-                  <option value="Documento Nacional de Identidad">Documento Nacional de Identidad</option>
-                  <option value="Pasaporte">Pasaporte</option>
-                </select>
-                <div class="select_arrow"></div>
-              </div>
-            <div class="input_field"> <span><i aria-hidden="true" class="fa fa-envelope"></i></span>
-            	N° de Documento<input type="number" th:field="*{nroDocumento}" required/></p>
-            </div>
-          	<input type="submit" class="button" />
-			<a class="navbar-brand" href="/">Cancelar</a>
-        </form>
-      </div>
-    </div>
-  </div>
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+		<ul class="nav navbar-nav">
+			<li ><a href="/profile/list"> Lista de Perfiles </a></li>
+		</ul>
+	</div>
+	</div>
+</nav>		
+<div class="panel panel-info">
+	<div class="panel-heading"> Añadir Perfil </div>
+  	<div class="panel-body">
+    	<form action="#" th:action="@{/create/profile}" th:object="${perfil}" method="post">
+			<p>  Nombre: <input type="text" th:field="*{nombre}" required></p>
+			<p>  Apellido: <input type="text" th:field="*{apellido}" required></p>
+			<div class="input_field select_option">
+			<p>  Tipo de Documento: <select name="menu" th:field="*{tipoDocumento}"></p>
+					<option value=null>Tipo de Documento</option>
+					<option value="Documento Nacional de Identidad">Documento Nacional de Identidad</option>
+					<option value="Pasaporte">Pasaporte</option>
+				</select>
+			<div class="select_arrow"></div>
+			<p>  Nro de Documento: <input type="number" th:field="*{nroDocumento}" required></p>
+			<p>  Email: <input type="email" placeholder="ejemplo@email.com" th:field="*{email}" required></p>
+			<p><input type="submit" class="btn btn-success" value="Aceptar"><a class="btn btn-danger" href="/">Cancelar</a></p>
+		</form>
+ 	</div>
 </div>
-
-   		</body>
-</html>

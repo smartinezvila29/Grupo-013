@@ -11,7 +11,7 @@ public class ViewRouteHelper {
 	public final static String PERFIL_EDIT = "edit/editperfil";
 	
 	//USER
-	public final static String USER_LOGIN = "user/create";
+	public final static String USER_CREATE = "create/createusuario";
 	public final static String USER_EDIT = "user/edit";
 	public final static String USER_LIST = "user/list";
 	public final static String USER_LOGOUT = "user/logout";

@@ -1,0 +1,16 @@
+<link href="../css/login.css" rel="stylesheet" type="text/css">
+
+<div class="wrapper fadeInDown">
+  <div id="formContent">
+    <!-- Tabs Titles -->
+    <h2 class="active"> Crear Usuario </h2>
+
+    <!-- Login Form -->
+    <form action="#" th:action="@{/create/user}" th:object="${usuario}" method="post">
+      <input type="text" id="login" class="fadeIn second" placeholder="Nombre de Usuario" th:field="*{nombre}" required>
+      <input type="password" id="password" class="fadeIn third" placeholder="Contraseña" th:field="*{contraseña}" required>
+      <input type="submit" class="fadeIn fourth" value="Registrarse">
+    </form>
+
+  </div>
+</div>

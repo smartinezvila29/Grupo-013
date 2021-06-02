@@ -28,41 +28,6 @@ public class CreateUserController {
 	@Autowired
 	@Qualifier("usuarioService")
 	private UsuarioService usuarioService;
-	
-	@GetMapping("/user/login")
-	public ModelAndView index() {
-		ModelAndView mAV = new ModelAndView(ViewRouteHelper.USER_LOGIN);
-		mAV.addObject("usuario", new UsuarioModel());
-		return mAV;
-	}
-	
-	@PostMapping("/login")
-	public RedirectView create(HttpServletRequest req, @ModelAttribute("usuario") UsuarioModel usuarioModel) {
-		if(!SessionManager.isOnline())
-		{
-		UsuarioModel user = usuarioModel;
-		UsuarioModel _user = usuarioService.getUser(user.getNombre());
-		//if (SessionHelper.getNombre() == null) {
-			//SessionHelper.setNombre(user.getNombre());
-			if (_user!=null && user.getNombre().equals(_user.getNombre())) {
-				if (!user.getContraseña().equals(_user.getContraseña())) {
-					return new RedirectView(ViewRouteHelper.SHARED_ERROR);
-				}
-				else
-				{
-					SigninSession(req, user);
-					return new RedirectView(ViewRouteHelper.HOME);
-				}
-			} else {
-				SigninSession(req, user);
-				user.setActive(true);
-				usuarioService.insertOrUpdate(user);
-				return new RedirectView(ViewRouteHelper.HOME);
-			}
-		}else {
-			return new RedirectView(ViewRouteHelper.SHARED_ERROR);
-		}
-	}
 
 	private void SigninSession(HttpServletRequest req, UsuarioModel user) {
 		SessionManager.setSession(req.getSession());
