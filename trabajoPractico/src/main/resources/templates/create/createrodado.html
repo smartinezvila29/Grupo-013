@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>Crear Perfil</title>
+    </head>
+       <body>
+           <p><a class="navbar-brand" href="/">Inicio</a></p>
+            <div class="container">
+                <h1>Añadir Rodado</h1>
+            </div>
+   		</body>
+<form action="#" th:action="@{/create/rodado}" th:object="${rodado}" method="post">
+	<input type="hidden" id="id" name="id" th:field="*{idRodado}"/>
+	<p>Dominio: <input type="text" th:field="*{dominio}" required/></p>
+	<p>Vehiculo: <input type="text" th:field="*{vehiculo}" required/></p>
+	<input type="submit" />
+</form>
+</html>

@@ -31,25 +31,11 @@ import com.unla.trabajoPractico.services.Implementation.PerfilService;
 
 @Controller
 @RequestMapping("/profile")
-public class CreatePerfilController {
+public class PerfilController {
 	
 	@Autowired
 	@Qualifier("perfilService")
 	private PerfilService perfilService;
-    
-	//Crear Perfil
-	@GetMapping("/signup")
-	public ModelAndView index() {
-		ModelAndView mAV= new ModelAndView(ViewRouteHelper.PERFIL_INDEX);
-		mAV.addObject("perfil", new PerfilModel());
-		return mAV;
-	}
-	
-	@PostMapping("/signup")
-	public RedirectView create(@ModelAttribute("perfil") PerfilModel perfilModel) {
-		perfilService.insertOrUpdate(perfilModel);
-		return new RedirectView(ViewRouteHelper.PERFIL_REFRESH);
-	}
 	
 	//Lista de Perfiles
 	@GetMapping("/list")
